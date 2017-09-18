@@ -9,16 +9,14 @@ function destructivelyUpdateObjectWithKeyAndValue(object, key, value) {
   return object
 }
 
+function deleteFromObjectByKey(object, key) {
+  var newObj = Object.assign({}, object)
+  delete newObj.key
+  return newObj
+}
+
+
 /*
-
-  2) Objects updateObjectWithKeyAndValue(object, key, value) it does not modify the original object, but rather returns a clone with the new data:
-     ReferenceError: updateObjectWithKeyAndValue is not defined
-      at Context.<anonymous> (test/index-test.js:21:7)
-
-  3) Objects destructivelyUpdateObjectWithKeyAndValue(object, key, value) updates `object` with the given `key` and `value` (it is destructive) and
-returns the entire updated object:
-     ReferenceError: destructivelyUpdateObjectWithKeyAndValue is not defined
-      at Context.<anonymous> (test/index-test.js:31:14)
 
   4) Objects deleteFromObjectByKey(object, key) deletes `key` from a clone of object and returns the new object (it is non-destructive):
      ReferenceError: deleteFromObjectByKey is not defined
